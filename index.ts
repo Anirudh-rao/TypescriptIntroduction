@@ -61,3 +61,72 @@ function addNum(x:number, y:number):number{
 function log(messaage: string|number):void{
     console.log(messaage)
 }
+
+//9.Interface :Similar to Object
+interface User {
+    //readonly properties can only read 
+    readonly id:Number,
+    name:string
+    //by adding '?' we can say that age is optional
+    age ?:number
+}
+const User:User = {
+    id:1,
+    name :'John'
+}
+
+//11.Classes  with interfaces
+interface PersonalUser {
+    //readonly properties can only read 
+    id:Number,
+    name:string
+    register() :string
+}
+class Person2 implements PersonalUser{
+    //private will only be accessable inside the class
+    id:number
+    name:string
+    //For the class to work we need Constructor
+    constructor(id:number, name:string){
+        this.id = id
+        this.name = name
+    }
+    register(){
+        return `${this.name} is now registerd`
+    }
+}
+
+class Person {
+    //private will only be accessable inside the class
+    private id:number
+    //protected allows only class and its children
+    protected name:string
+    //For the class to work we need Constructor
+    constructor(id:number, name:string){
+        this.id = id
+        this.name = name
+    }
+    register(){
+        return `${this.name} is now registerd`
+    }
+}
+
+//13.Class properties
+class Employee extends Person{
+    position:string
+    constructor(id:number, name:string,position:string){
+        //With Super Keyword we can extend Parent Parameters
+        super(id,name) 
+        this.position  = position
+    }
+}
+const emp = new Employee(2, 'Smith','HR')
+
+
+//14.Generics
+function getArray<T>(items:T[]):T[]{
+    return new Array().concat(items)
+}
+let numArray =  getArray<number>([1,2,3,4])
+let strArray =  getArray<string>(['brad','John','JIll'])
+
