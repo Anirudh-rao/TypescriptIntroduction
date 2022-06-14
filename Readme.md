@@ -13,3 +13,6 @@ Useful commmands in Typescript:
 ```index.ts```.
 
 3. ``` tsc --init ``` - will Generate a ```tsconfig``` files that project configuration file.
+
+4. ```tsc``- used to compile Project
+
